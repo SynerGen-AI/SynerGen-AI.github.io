@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: contact
 title: Contact Us
 subtitle: Get in Touch with the SynerGen-AI Community
 lang: en

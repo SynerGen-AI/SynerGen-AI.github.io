@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: people
 title: Our Team
 subtitle: Meet the researchers and developers behind SynerGen-AI
 lang: en

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: people
 title: 我们的团队
 subtitle: 认识SynerGen-AI背后的研究人员和开发者
 lang: cn

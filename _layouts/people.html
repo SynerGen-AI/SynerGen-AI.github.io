@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<div class="people-page">
+    <!-- Hero Section -->
+    <section class="people-hero">
+        <div class="wrapper">
+            <div class="people-hero-content">
+                <h1 class="people-hero-title">{{ page.title }}</h1>
+                {% if page.subtitle %}
+                <p class="people-hero-subtitle">{{ page.subtitle }}</p>
+                {% endif %}
+            </div>
+            <div class="people-hero-visual">
+                <div class="people-animation">
+                    <div class="team-nodes">
+                        <div class="team-node team-1"></div>
+                        <div class="team-node team-2"></div>
+                        <div class="team-node team-3"></div>
+                        <div class="team-node team-4"></div>
+                        <div class="team-connection team-conn-1"></div>
+                        <div class="team-connection team-conn-2"></div>
+                        <div class="team-connection team-conn-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Page Content -->
+    <div class="page-content">
+        {{ content }}
+    </div>
+</div>

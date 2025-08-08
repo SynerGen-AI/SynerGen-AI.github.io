@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: projects
 title: 我们的项目
 subtitle: 探索我们对生成式AI的开源贡献
 lang: cn

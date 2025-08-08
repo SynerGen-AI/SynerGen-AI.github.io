@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<div class="contact-page">
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="wrapper">
+            <div class="contact-hero-content">
+                <h1 class="contact-hero-title">{{ page.title }}</h1>
+                {% if page.subtitle %}
+                <p class="contact-hero-subtitle">{{ page.subtitle }}</p>
+                {% endif %}
+            </div>
+            <div class="contact-hero-visual">
+                <div class="contact-animation">
+                    <div class="contact-nodes">
+                        <div class="contact-node contact-1"></div>
+                        <div class="contact-node contact-2"></div>
+                        <div class="contact-node contact-3"></div>
+                        <div class="contact-connection contact-conn-1"></div>
+                        <div class="contact-connection contact-conn-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Page Content -->
+    <div class="page-content">
+        {{ content }}
+    </div>
+</div>

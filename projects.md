@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: projects
 title: Our Projects
 subtitle: Explore our open-source contributions to generative AI
 lang: en

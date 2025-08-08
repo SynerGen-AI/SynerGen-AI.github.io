@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+<div class="projects-page">
+    <!-- Hero Section -->
+    <section class="projects-hero">
+        <div class="wrapper">
+            <div class="projects-hero-content">
+                <h1 class="projects-hero-title">{{ page.title }}</h1>
+                {% if page.subtitle %}
+                <p class="projects-hero-subtitle">{{ page.subtitle }}</p>
+                {% endif %}
+            </div>
+            <div class="projects-hero-visual">
+                <div class="projects-animation">
+                    <div class="project-nodes">
+                        <div class="project-node project-1"></div>
+                        <div class="project-node project-2"></div>
+                        <div class="project-node project-3"></div>
+                        <div class="project-node project-4"></div>
+                        <div class="project-node project-5"></div>
+                        <div class="project-connection project-conn-1"></div>
+                        <div class="project-connection project-conn-2"></div>
+                        <div class="project-connection project-conn-3"></div>
+                        <div class="project-connection project-conn-4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Page Content -->
+    <div class="page-content">
+        {{ content }}
+    </div>
+</div>

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: contact
 title: 联系我们
 subtitle: 与SynerGen-AI社区取得联系
 lang: cn
