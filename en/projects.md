@@ -255,9 +255,6 @@ github_projects:
   {{ page.github_projects | jsonify }}
   </script>
   
-  <script src="{{ '/assets/js/cache-manager.js' | relative_url }}"></script>
-  <script src="{{ '/assets/js/cache-monitor.js' | relative_url }}"></script>
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const filterButtons = document.querySelectorAll('.filter-btn');
