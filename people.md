@@ -3,6 +3,14 @@ layout: people
 title: 我们的团队
 subtitle: 认识SynerGen-AI背后的研究人员和开发者
 lang: cn
+github_members:
+  core:
+    - username: "GoldenKerwin"
+      role: "首席技术官"
+    - username: "35tang"
+      role: "AI研究员"
+    - username: "luohj29"
+      role: "软件开发者"
 ---
 
 <div class="people-page">
@@ -13,207 +21,24 @@ lang: cn
   <div class="team-sections">
     <section class="team-section">
       <h2>核心团队</h2>
-      <div class="team-grid">
-        {% assign core_members = site.people | where: "role", "core" %}
-        {% for person in core_members %}
-          {% if person.lang == 'cn' %}
-          <div class="team-member">
-            <div class="member-card">
-              <div class="member-avatar">
-                {% if person.avatar %}
-                <img src="{{ person.avatar | relative_url }}" alt="{{ person.name }}">
-                {% else %}
-                <div class="avatar-placeholder">
-                  <i class="fas fa-user"></i>
-                </div>
-                {% endif %}
-              </div>
-              
-              <div class="member-info">
-                <h3 class="member-name">
-                  <a href="{{ person.url | relative_url }}">{{ person.name }}</a>
-                </h3>
-                {% if person.position %}
-                <p class="member-position">{{ person.position }}</p>
-                {% endif %}
-                {% if person.affiliation %}
-                <p class="member-affiliation">{{ person.affiliation }}</p>
-                {% endif %}
-                
-                {% if person.excerpt %}
-                <p class="member-bio">{{ person.excerpt | strip_html | truncate: 120 }}</p>
-                {% endif %}
-                
-                <div class="member-links">
-                  {% if person.email %}
-                  <a href="mailto:{{ person.email }}" class="member-link" title="邮箱">
-                    <i class="fas fa-envelope"></i>
-                  </a>
-                  {% endif %}
-                  {% if person.github %}
-                  <a href="https://github.com/{{ person.github }}" target="_blank" class="member-link" title="GitHub">
-                    <i class="fab fa-github"></i>
-                  </a>
-                  {% endif %}
-                  {% if person.linkedin %}
-                  <a href="{{ person.linkedin }}" target="_blank" class="member-link" title="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                  </a>
-                  {% endif %}
-                  {% if person.website %}
-                  <a href="{{ person.website }}" target="_blank" class="member-link" title="个人网站">
-                    <i class="fas fa-globe"></i>
-                  </a>
-                  {% endif %}
-                  {% if person.twitter %}
-                  <a href="https://twitter.com/{{ person.twitter }}" target="_blank" class="member-link" title="Twitter">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                  {% endif %}
-                </div>
-                
-                {% if person.expertise %}
-                <div class="member-expertise">
-                  {% for skill in person.expertise %}
-                  <span class="expertise-tag">{{ skill }}</span>
-                  {% endfor %}
-                </div>
-                {% endif %}
-              </div>
-            </div>
-          </div>
-          {% endif %}
-        {% endfor %}
-      </div>
-    </section>
-
-    <section class="team-section">
-      <h2>研究员</h2>
-      <div class="team-grid">
-        {% assign research_fellows = site.people | where: "role", "research" %}
-        {% for person in research_fellows %}
-          {% if person.lang == 'cn' %}
-          <div class="team-member">
-            <div class="member-card">
-              <div class="member-avatar">
-                {% if person.avatar %}
-                <img src="{{ person.avatar | relative_url }}" alt="{{ person.name }}">
-                {% else %}
-                <div class="avatar-placeholder">
-                  <i class="fas fa-user"></i>
-                </div>
-                {% endif %}
-              </div>
-              
-              <div class="member-info">
-                <h3 class="member-name">
-                  <a href="{{ person.url | relative_url }}">{{ person.name }}</a>
-                </h3>
-                {% if person.position %}
-                <p class="member-position">{{ person.position }}</p>
-                {% endif %}
-                {% if person.affiliation %}
-                <p class="member-affiliation">{{ person.affiliation }}</p>
-                {% endif %}
-                
-                {% if person.excerpt %}
-                <p class="member-bio">{{ person.excerpt | strip_html | truncate: 120 }}</p>
-                {% endif %}
-                
-                <div class="member-links">
-                  {% if person.email %}
-                  <a href="mailto:{{ person.email }}" class="member-link" title="邮箱">
-                    <i class="fas fa-envelope"></i>
-                  </a>
-                  {% endif %}
-                  {% if person.github %}
-                  <a href="https://github.com/{{ person.github }}" target="_blank" class="member-link" title="GitHub">
-                    <i class="fab fa-github"></i>
-                  </a>
-                  {% endif %}
-                  {% if person.linkedin %}
-                  <a href="{{ person.linkedin }}" target="_blank" class="member-link" title="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                  </a>
-                  {% endif %}
-                  {% if person.website %}
-                  <a href="{{ person.website }}" target="_blank" class="member-link" title="个人网站">
-                    <i class="fas fa-globe"></i>
-                  </a>
-                  {% endif %}
-                </div>
-                
-                {% if person.expertise %}
-                <div class="member-expertise">
-                  {% for skill in person.expertise %}
-                  <span class="expertise-tag">{{ skill }}</span>
-                  {% endfor %}
-                </div>
-                {% endif %}
-              </div>
-            </div>
-          </div>
-          {% endif %}
-        {% endfor %}
-      </div>
-    </section>
-
-    <section class="team-section">
-      <h2>贡献者</h2>
-      <div class="team-grid">
-        {% assign contributors = site.people | where: "role", "contributor" %}
-        {% for person in contributors %}
-          {% if person.lang == 'cn' %}
-          <div class="team-member">
-            <div class="member-card">
-              <div class="member-avatar">
-                {% if person.avatar %}
-                <img src="{{ person.avatar | relative_url }}" alt="{{ person.name }}">
-                {% else %}
-                <div class="avatar-placeholder">
-                  <i class="fas fa-user"></i>
-                </div>
-                {% endif %}
-              </div>
-              
-              <div class="member-info">
-                <h3 class="member-name">
-                  <a href="{{ person.url | relative_url }}">{{ person.name }}</a>
-                </h3>
-                {% if person.position %}
-                <p class="member-position">{{ person.position }}</p>
-                {% endif %}
-                {% if person.affiliation %}
-                <p class="member-affiliation">{{ person.affiliation }}</p>
-                {% endif %}
-                
-                <div class="member-links">
-                  {% if person.github %}
-                  <a href="https://github.com/{{ person.github }}" target="_blank" class="member-link" title="GitHub">
-                    <i class="fab fa-github"></i>
-                  </a>
-                  {% endif %}
-                  {% if person.linkedin %}
-                  <a href="{{ person.linkedin }}" target="_blank" class="member-link" title="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                  </a>
-                  {% endif %}
-                </div>
-              </div>
-            </div>
-          </div>
-          {% endif %}
-        {% endfor %}
+      <div class="team-grid" id="core-team-grid">
+        <!-- 核心团队成员将通过JavaScript动态加载 -->
       </div>
     </section>
   </div>
+</div>
+
+<!-- GitHub成员数据 -->
+<script type="application/json" id="github-members-data">
+{{ page.github_members | jsonify }}
+</script>
 
   <div class="join-team">
     <div class="join-team-content">
       <h2>加入我们的团队</h2>
       <p>我们一直在寻找有才华的研究人员、工程师和贡献者加入我们推进生成式AI的使命。无论您对全职职位、研究合作还是开源贡献感兴趣，我们都很乐意听到您的声音。</p>
       <div class="join-actions">
-        <a href="/cn/contact/" class="btn btn-primary">联系我们</a>
+        <a href="/contact/" class="btn btn-primary">联系我们</a>
         <a href="https://github.com/SynerGen-AI" target="_blank" class="btn btn-secondary">查看开放问题</a>
       </div>
     </div>
@@ -379,6 +204,77 @@ lang: cn
   border-radius: 20px;
   font-size: 0.75rem;
   font-weight: 500;
+}
+
+/* 加载和错误状态样式 */
+.loading-message, .error-message {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: #64748b;
+  font-size: 1.125rem;
+}
+
+.loading-message i {
+  margin-right: 0.5rem;
+  color: #2563eb;
+}
+
+.error-message {
+  color: #ef4444;
+}
+
+.error-message i {
+  margin-right: 0.5rem;
+}
+
+/* 错误卡片样式 */
+.error-card {
+  border-color: #fecaca;
+  background: #fef2f2;
+}
+
+.error-card .avatar-placeholder {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.error-text {
+  color: #ef4444;
+  font-style: italic;
+}
+
+/* 成员统计样式 */
+.member-stats {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.stat-item i {
+  color: #2563eb;
+}
+
+/* 成员姓名样式更新 */
+.member-name {
+  color: #1e293b;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.member-name:hover {
+  color: #2563eb;
 }
 
 .join-team {
