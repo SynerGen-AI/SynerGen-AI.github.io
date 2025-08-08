@@ -1,0 +1,84 @@
+<svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="profileBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="profileFace" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffeaa7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fab1a0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="profileHair" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d3436;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#636e72;stop-opacity:1" />
+    </linearGradient>
+    <filter id="profileShadow">
+      <feDropShadow dx="3" dy="3" stdDeviation="6" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="300" height="300" fill="url(#profileBg)"/>
+  
+  <!-- Face -->
+  <ellipse cx="150" cy="160" rx="70" ry="80" fill="url(#profileFace)" filter="url(#profileShadow)"/>
+  
+  <!-- Hair -->
+  <path d="M 80 120 Q 150 70 220 120 Q 210 100 150 90 Q 90 100 80 120" fill="url(#profileHair)"/>
+  <path d="M 75 130 Q 85 115 100 130 Q 110 140 120 150" fill="url(#profileHair)"/>
+  <path d="M 220 130 Q 210 115 195 130 Q 185 140 175 150" fill="url(#profileHair)"/>
+  
+  <!-- Eyes -->
+  <ellipse cx="125" cy="145" rx="12" ry="9" fill="white"/>
+  <ellipse cx="175" cy="145" rx="12" ry="9" fill="white"/>
+  <circle cx="125" cy="145" r="6" fill="#2d3436"/>
+  <circle cx="175" cy="145" r="6" fill="#2d3436"/>
+  <circle cx="127" cy="142" r="2" fill="white"/>
+  <circle cx="177" cy="142" r="2" fill="white"/>
+  
+  <!-- Eyebrows -->
+  <path d="M 110 130 Q 125 125 140 130" stroke="#2d3436" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M 160 130 Q 175 125 190 130" stroke="#2d3436" stroke-width="3" fill="none" stroke-linecap="round"/>
+  
+  <!-- Nose -->
+  <path d="M 150 155 L 147 170 L 153 170 Z" fill="#e17055" opacity="0.7"/>
+  
+  <!-- Mouth -->
+  <path d="M 130 185 Q 150 200 170 185" stroke="#e17055" stroke-width="3" fill="none" stroke-linecap="round"/>
+  
+  <!-- Clothing -->
+  <path d="M 90 240 Q 150 220 210 240 L 210 300 L 90 300 Z" fill="#74b9ff"/>
+  
+  <!-- Professional glasses -->
+  <ellipse cx="125" cy="145" rx="18" ry="15" fill="none" stroke="#2d3436" stroke-width="3" opacity="0.8"/>
+  <ellipse cx="175" cy="145" rx="18" ry="15" fill="none" stroke="#2d3436" stroke-width="3" opacity="0.8"/>
+  <line x1="143" y1="145" x2="157" y2="145" stroke="#2d3436" stroke-width="3" opacity="0.8"/>
+  
+  <!-- Tech-themed elements -->
+  <g opacity="0.3">
+    <rect x="250" y="80" width="12" height="12" fill="#00cec9" rx="2">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <circle cx="60" cy="200" r="4" fill="#fd79a8">
+      <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <polygon points="260,200 270,210 260,220 250,210" fill="#fdcb6e">
+      <animate attributeName="opacity" values="0.4;0.9;0.4" dur="1.8s" repeatCount="indefinite"/>
+    </polygon>
+  </g>
+  
+  <!-- Code pattern in background -->
+  <g opacity="0.1" fill="white" font-family="monospace" font-size="12">
+    <text x="20" y="50">function() {</text>
+    <text x="30" y="70">  return AI;</text>
+    <text x="20" y="90">}</text>
+    
+    <text x="220" y="250">class Rogers {</text>
+    <text x="230" y="270">  code();</text>
+    <text x="220" y="290">}</text>
+  </g>
+  
+  <!-- Name label -->
+  <rect x="100" y="260" width="100" height="25" fill="rgba(255,255,255,0.9)" rx="12"/>
+  <text x="150" y="277" text-anchor="middle" fill="#2d3436" font-family="Arial" font-size="14" font-weight="bold">Rogers</text>
+</svg>

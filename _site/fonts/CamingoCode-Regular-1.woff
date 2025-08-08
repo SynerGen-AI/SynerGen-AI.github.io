@@ -1,0 +1,30 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fontGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6c5ce7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a29bfe;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100" height="100" fill="url(#fontGradient)"/>
+  
+  <!-- Font icon representation -->
+  <g fill="white">
+    <!-- Letter A -->
+    <path d="M 20 70 L 30 40 L 40 70 M 25 60 L 35 60" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+    
+    <!-- Letter a (lowercase) -->
+    <circle cx="55" cy="60" r="8" fill="none" stroke="white" stroke-width="2"/>
+    <line x1="63" y1="52" x2="63" y2="70" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    
+    <!-- Monospace indicator -->
+    <rect x="75" y="50" width="15" height="20" fill="none" stroke="white" stroke-width="2" rx="2"/>
+    <line x1="78" y1="55" x2="87" y2="55" stroke="white" stroke-width="1"/>
+    <line x1="78" y1="60" x2="87" y2="60" stroke="white" stroke-width="1"/>
+    <line x1="78" y1="65" x2="87" y2="65" stroke="white" stroke-width="1"/>
+  </g>
+  
+  <!-- Font name -->
+  <text x="50" y="85" text-anchor="middle" fill="white" font-family="monospace" font-size="8">CamingoCode</text>
+</svg>

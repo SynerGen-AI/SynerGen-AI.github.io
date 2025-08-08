@@ -1,0 +1,71 @@
+---
+layout: default
+---
+
+<div class="project-wrapper">
+    <div class="wrapper">
+        <article class="project">
+            <header class="project-header">
+                {% if page.image %}
+                <div class="project-image">
+                    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+                </div>
+                {% endif %}
+                
+                <div class="project-info">
+                    <h1 class="project-title">{{ page.title }}</h1>
+                    {% if page.subtitle %}
+                    <p class="project-subtitle">{{ page.subtitle }}</p>
+                    {% endif %}
+                    
+                    <div class="project-meta">
+                        {% if page.status %}
+                        <span class="project-status status-{{ page.status | downcase }}">{{ page.status }}</span>
+                        {% endif %}
+                        {% if page.category %}
+                        <span class="project-category">{{ page.category }}</span>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="project-links">
+                        {% if page.github %}
+                        <a href="{{ page.github }}" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                        {% endif %}
+                        {% if page.demo %}
+                        <a href="{{ page.demo }}" target="_blank" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Demo
+                        </a>
+                        {% endif %}
+                        {% if page.paper %}
+                        <a href="{{ page.paper }}" target="_blank" class="project-link">
+                            <i class="fas fa-file-pdf"></i> Paper
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </header>
+            
+            <div class="project-content">
+                {{ content }}
+            </div>
+            
+            {% if page.team %}
+            <div class="project-team">
+                <h3>{% if page.lang == 'cn' %}项目团队{% else %}Project Team{% endif %}</h3>
+                <div class="team-members">
+                    {% for member in page.team %}
+                    <div class="team-member">
+                        <span class="member-name">{{ member.name }}</span>
+                        {% if member.role %}
+                        <span class="member-role">{{ member.role }}</span>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </article>
+    </div>
+</div>

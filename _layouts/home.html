@@ -1,0 +1,137 @@
+---
+layout: default
+---
+
+<div class="home">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="wrapper">
+            <div class="hero-content">
+                <h1 class="hero-title">{{ page.hero.title }}</h1>
+                <p class="hero-subtitle">{{ page.hero.subtitle }}</p>
+                <div class="hero-actions">
+                    {% for action in page.hero.actions %}
+                    <a href="{{ action.url | relative_url }}" class="btn btn-{{ action.style }}">{{ action.text }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-animation">
+                    <div class="ai-nodes">
+                        <div class="node node-1"></div>
+                        <div class="node node-2"></div>
+                        <div class="node node-3"></div>
+                        <div class="node node-4"></div>
+                        <div class="connection connection-1"></div>
+                        <div class="connection connection-2"></div>
+                        <div class="connection connection-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    {% if page.features %}
+    <section class="features">
+        <div class="wrapper">
+            <h2 class="section-title">{{ page.features.title }}</h2>
+            <div class="features-grid">
+                {% for feature in page.features.items %}
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="{{ feature.icon }}"></i>
+                    </div>
+                    <h3 class="feature-title">{{ feature.title }}</h3>
+                    <p class="feature-description">{{ feature.description }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    
+    <!-- Recent Projects -->
+    {% if page.recent_projects %}
+    <section class="recent-projects">
+        <div class="wrapper">
+            <div class="section-header">
+                <h2 class="section-title">{{ page.recent_projects.title }}</h2>
+                <a href="{{ '/projects/' | relative_url }}" class="section-link">{{ page.recent_projects.view_all }}</a>
+            </div>
+            <div class="projects-grid">
+                {% assign projects = site.projects | limit: 3 %}
+                {% for project in projects %}
+                <div class="project-card">
+                    {% if project.image %}
+                    <div class="project-image">
+                        <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
+                    </div>
+                    {% endif %}
+                    <div class="project-info">
+                        <h3 class="project-title">
+                            <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+                        </h3>
+                        <p class="project-description">{{ project.excerpt | strip_html | truncate: 120 }}</p>
+                        {% if project.status %}
+                        <span class="project-status status-{{ project.status | downcase }}">{{ project.status }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    
+    <!-- Team Preview -->
+    {% if page.team_preview %}
+    <section class="team-preview">
+        <div class="wrapper">
+            <div class="section-header">
+                <h2 class="section-title">{{ page.team_preview.title }}</h2>
+                <a href="{{ '/people/' | relative_url }}" class="section-link">{{ page.team_preview.view_all }}</a>
+            </div>
+            <div class="team-grid">
+                {% assign people = site.people | limit: 4 %}
+                {% for person in people %}
+                <div class="team-member">
+                    <div class="member-avatar">
+                        {% if person.avatar %}
+                        <img src="{{ person.avatar | relative_url }}" alt="{{ person.name }}">
+                        {% else %}
+                        <div class="avatar-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <h4 class="member-name">
+                        <a href="{{ person.url | relative_url }}">{{ person.name }}</a>
+                    </h4>
+                    {% if person.position %}
+                    <p class="member-position">{{ person.position }}</p>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    
+    <!-- CTA Section -->
+    {% if page.cta %}
+    <section class="cta">
+        <div class="wrapper">
+            <div class="cta-content">
+                <h2 class="cta-title">{{ page.cta.title }}</h2>
+                <p class="cta-description">{{ page.cta.description }}</p>
+                <div class="cta-actions">
+                    {% for action in page.cta.actions %}
+                    <a href="{{ action.url | relative_url }}" class="btn btn-{{ action.style }}">{{ action.text }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+</div>

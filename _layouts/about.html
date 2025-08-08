@@ -1,0 +1,127 @@
+---
+layout: default
+---
+
+<div class="about-page">
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="wrapper">
+            <div class="about-hero-content">
+                <h1 class="about-hero-title">{{ page.title }}</h1>
+                {% if page.subtitle %}
+                <p class="about-hero-subtitle">{{ page.subtitle }}</p>
+                {% endif %}
+            </div>
+            <div class="about-hero-visual">
+                <div class="about-animation">
+                    <div class="mission-nodes">
+                        <div class="mission-node mission-1"></div>
+                        <div class="mission-node mission-2"></div>
+                        <div class="mission-node mission-3"></div>
+                        <div class="mission-connection mission-conn-1"></div>
+                        <div class="mission-connection mission-conn-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Identity Section -->
+    {% if page.identity %}
+    <section class="identity-section">
+        <div class="wrapper">
+            <div class="identity-content">
+                <h2 class="section-title">{{ page.identity.title }}</h2>
+                <p class="identity-description">{{ page.identity.description }}</p>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    
+    <!-- Mission Section -->
+    {% if page.mission %}
+    <section class="mission-section">
+        <div class="wrapper">
+            <div class="mission-content">
+                <h2 class="section-title">{{ page.mission.title }}</h2>
+                <p class="mission-description">{{ page.mission.description }}</p>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    
+    <!-- Values Section -->
+    {% if page.values %}
+    <section class="values-section">
+        <div class="wrapper">
+            <h2 class="section-title">{{ page.values.title }}</h2>
+            <div class="values-grid">
+                {% for value in page.values.items %}
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="{{ value.icon }}"></i>
+                    </div>
+                    <h3 class="value-title">{{ value.title }}</h3>
+                    <p class="value-description">{{ value.description }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    
+    <!-- Focus Areas Section -->
+    {% if page.focus_areas %}
+    <section class="focus-areas-section">
+        <div class="wrapper">
+            <h2 class="section-title">{{ page.focus_areas.title }}</h2>
+            <div class="focus-areas-grid">
+                {% for area in page.focus_areas.items %}
+                <div class="focus-area-card">
+                    <div class="focus-area-icon">
+                        <i class="{{ area.icon }}"></i>
+                    </div>
+                    <h3 class="focus-area-title">{{ area.title }}</h3>
+                    <p class="focus-area-description">{{ area.description }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    
+    <!-- Impact Section -->
+    {% if page.impact %}
+    <section class="impact-section">
+        <div class="wrapper">
+            <h2 class="section-title">{{ page.impact.title }}</h2>
+            <div class="impact-stats">
+                {% for stat in page.impact.stats %}
+                <div class="impact-stat">
+                    <div class="stat-number">{{ stat.number }}</div>
+                    <div class="stat-label">{{ stat.label }}</div>
+                    <div class="stat-description">{{ stat.description }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    
+    <!-- CTA Section -->
+    {% if page.cta %}
+    <section class="about-cta">
+        <div class="wrapper">
+            <div class="cta-content">
+                <h2 class="cta-title">{{ page.cta.title }}</h2>
+                <p class="cta-description">{{ page.cta.description }}</p>
+                <div class="cta-actions">
+                    {% for action in page.cta.actions %}
+                    <a href="{{ action.url | relative_url }}" class="btn btn-{{ action.style }}">{{ action.text }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+</div>

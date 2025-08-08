@@ -1,0 +1,90 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9a9e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fecfef;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="faceGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffeaa7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fab1a0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="hairGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d3436;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#636e72;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="2" stdDeviation="4" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="100" fill="url(#bgGradient)"/>
+  
+  <!-- Face -->
+  <ellipse cx="100" cy="110" rx="45" ry="50" fill="url(#faceGradient)" filter="url(#shadow)"/>
+  
+  <!-- Hair -->
+  <path d="M 55 75 Q 100 45 145 75 Q 140 65 100 60 Q 60 65 55 75" fill="url(#hairGradient)"/>
+  <path d="M 50 80 Q 55 70 65 80 Q 70 85 75 90" fill="url(#hairGradient)"/>
+  <path d="M 145 80 Q 140 70 130 80 Q 125 85 120 90" fill="url(#hairGradient)"/>
+  
+  <!-- Eyes -->
+  <ellipse cx="85" cy="100" rx="8" ry="6" fill="white"/>
+  <ellipse cx="115" cy="100" rx="8" ry="6" fill="white"/>
+  <circle cx="85" cy="100" r="4" fill="#2d3436"/>
+  <circle cx="115" cy="100" r="4" fill="#2d3436"/>
+  <circle cx="87" cy="98" r="1.5" fill="white"/>
+  <circle cx="117" cy="98" r="1.5" fill="white"/>
+  
+  <!-- Eyebrows -->
+  <path d="M 75 88 Q 85 86 95 88" stroke="#2d3436" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M 105 88 Q 115 86 125 88" stroke="#2d3436" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- Nose -->
+  <path d="M 100 105 L 98 115 L 102 115 Z" fill="#e17055" opacity="0.6"/>
+  
+  <!-- Mouth -->
+  <path d="M 90 125 Q 100 135 110 125" stroke="#e17055" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- Clothing -->
+  <path d="M 60 160 Q 100 150 140 160 L 140 200 L 60 200 Z" fill="#0984e3"/>
+  
+  <!-- Computer vision themed elements -->
+  <g opacity="0.3">
+    <rect x="160" y="60" width="8" height="8" fill="#00cec9" rx="1">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="40" y="140" width="6" height="6" fill="#fd79a8" rx="1">
+      <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="170" y="150" width="7" height="7" fill="#fdcb6e" rx="1">
+      <animate attributeName="opacity" values="0.4;0.9;0.4" dur="1.8s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  
+  <!-- Vision processing grid pattern -->
+  <g opacity="0.1" stroke="white" stroke-width="1" fill="none">
+    <rect x="20" y="30" width="10" height="10"/>
+    <rect x="35" y="30" width="10" height="10"/>
+    <rect x="20" y="45" width="10" height="10"/>
+    <rect x="35" y="45" width="10" height="10"/>
+    
+    <rect x="155" y="170" width="10" height="10"/>
+    <rect x="170" y="170" width="10" height="10"/>
+    <rect x="155" y="185" width="10" height="10"/>
+    <rect x="170" y="185" width="10" height="10"/>
+  </g>
+  
+  <!-- Attention lines for computer vision theme -->
+  <g opacity="0.2" stroke="#74b9ff" stroke-width="1" fill="none">
+    <line x1="25" y1="35" x2="85" y2="100">
+      <animate attributeName="opacity" values="0.1;0.5;0.1" dur="3s" repeatCount="indefinite"/>
+    </line>
+    <line x1="40" y1="50" x2="100" y2="110">
+      <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="165" y1="175" x2="115" y2="100">
+      <animate attributeName="opacity" values="0.1;0.4;0.1" dur="2.8s" repeatCount="indefinite"/>
+    </line>
+  </g>
+</svg>
