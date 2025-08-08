@@ -10,6 +10,7 @@ github_username: SynerGen-AI
 
 # Build settings
 markdown: kramdown
+permalink: pretty
 highlighter: rouge
 theme: minima
 plugins:
