@@ -33,14 +33,21 @@ github_members:
 {{ page.github_members | jsonify }}
 </script>
 
-  <div class="join-team">
-    <div class="join-team-content">
-      <h2>加入我们的团队</h2>
-      <p>我们一直在寻找有才华的研究人员、工程师和贡献者加入我们推进生成式AI的使命。无论您对全职职位、研究合作还是开源贡献感兴趣，我们都很乐意听到您的声音。</p>
-      <div class="join-actions">
-        <a href="/contact/" class="btn btn-primary">联系我们</a>
-        <a href="https://github.com/SynerGen-AI" target="_blank" class="btn btn-secondary">查看开放问题</a>
-      </div>
+<script>
+// 将GitHub成员数据传递给JavaScript
+const githubMembersData = {{ page.github_members | jsonify }};
+</script>
+
+<script src="{{ '/assets/js/cache-manager.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/cache-monitor.js' | relative_url }}"></script>
+
+<div class="join-team">
+  <div class="join-team-content">
+    <h2>加入我们的团队</h2>
+    <p>我们一直在寻找有才华的研究人员、工程师和贡献者加入我们推进生成式AI的使命。无论您对全职职位、研究合作还是开源贡献感兴趣，我们都很乐意听到您的声音。</p>
+    <div class="join-actions">
+      <a href="/contact/" class="btn btn-primary">联系我们</a>
+      <a href="https://github.com/SynerGen-AI" target="_blank" class="btn btn-secondary">查看开放问题</a>
     </div>
   </div>
 </div>

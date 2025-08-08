@@ -49,13 +49,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function fetchAndRenderMember(memberConfig) {
         try {
-            const response = await fetch(`https://api.github.com/users/${memberConfig.username}`);
-            
-            if (!response.ok) {
-                throw new Error(`获取用户 ${memberConfig.username} 信息失败`);
-            }
-            
-            const userData = await response.json();
+            // 使用缓存管理器获取用户数据
+            const userData = await window.gitHubCache.getGitHubUser(memberConfig.username);
             return createMemberCard(userData, memberConfig.role);
             
         } catch (error) {
