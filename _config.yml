@@ -19,8 +19,8 @@ plugins:
   - jekyll-seo-tag
 
 # Multi-language support
-languages: ["en", "cn"]
-default_lang: "en"
+languages: ["cn", "en"]
+default_lang: "cn"
 exclude_from_localizations: ["javascript", "images", "css", "assets"]
 
 # Collections
@@ -34,24 +34,24 @@ collections:
 
 # Navigation
 navigation:
-  en:
-    - title: "About"
-      url: "/about/"
-    - title: "People"
-      url: "/people/"
-    - title: "Projects"
-      url: "/projects/"
-    - title: "Contact"
-      url: "/contact/"
   cn:
     - title: "关于我们"
-      url: "/cn/about/"
+      url: "/about/"
     - title: "团队成员"
-      url: "/cn/people/"
+      url: "/people/"
     - title: "项目"
-      url: "/cn/projects/"
+      url: "/projects/"
     - title: "联系我们"
-      url: "/cn/contact/"
+      url: "/contact/"
+  en:
+    - title: "About"
+      url: "/en/about/"
+    - title: "People"
+      url: "/en/people/"
+    - title: "Projects"
+      url: "/en/projects/"
+    - title: "Contact"
+      url: "/en/contact/"
 
 # Defaults
 defaults:
@@ -60,13 +60,13 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      lang: "en"
+      lang: "cn"
   - scope:
-      path: "cn"
+      path: "en"
       type: "posts"
     values:
       layout: "post"
-      lang: "cn"
+      lang: "en"
   - scope:
       path: ""
       type: "people"

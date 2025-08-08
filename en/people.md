@@ -1,22 +1,22 @@
 ---
 layout: people
-title: 我们的团队
-subtitle: 认识SynerGen-AI背后的研究人员和开发者
-lang: cn
+title: Our Team
+subtitle: Meet the researchers and developers behind SynerGen-AI
+lang: en
 ---
 
 <div class="people-page">
   <div class="team-intro">
-    <p>SynerGen-AI汇聚了来自世界各地的多元化研究人员、工程师和AI爱好者团队。我们的团队结合了机器学习、软件工程和领域专业知识的深厚专业技能，致力于推进生成式AI领域的发展。</p>
+    <p>SynerGen-AI brings together a diverse group of researchers, engineers, and AI enthusiasts from around the world. Our team combines deep expertise in machine learning, software engineering, and domain-specific knowledge to advance the field of generative AI.</p>
   </div>
 
   <div class="team-sections">
     <section class="team-section">
-      <h2>核心团队</h2>
+      <h2>Core Team</h2>
       <div class="team-grid">
         {% assign core_members = site.people | where: "role", "core" %}
         {% for person in core_members %}
-          {% if person.lang == 'cn' %}
+          {% if person.lang == 'en' or person.lang == nil %}
           <div class="team-member">
             <div class="member-card">
               <div class="member-avatar">
@@ -46,7 +46,7 @@ lang: cn
                 
                 <div class="member-links">
                   {% if person.email %}
-                  <a href="mailto:{{ person.email }}" class="member-link" title="邮箱">
+                  <a href="mailto:{{ person.email }}" class="member-link" title="Email">
                     <i class="fas fa-envelope"></i>
                   </a>
                   {% endif %}
@@ -61,7 +61,7 @@ lang: cn
                   </a>
                   {% endif %}
                   {% if person.website %}
-                  <a href="{{ person.website }}" target="_blank" class="member-link" title="个人网站">
+                  <a href="{{ person.website }}" target="_blank" class="member-link" title="Website">
                     <i class="fas fa-globe"></i>
                   </a>
                   {% endif %}
@@ -88,11 +88,11 @@ lang: cn
     </section>
 
     <section class="team-section">
-      <h2>研究员</h2>
+      <h2>Research Fellows</h2>
       <div class="team-grid">
         {% assign research_fellows = site.people | where: "role", "research" %}
         {% for person in research_fellows %}
-          {% if person.lang == 'cn' %}
+          {% if person.lang == 'en' or person.lang == nil %}
           <div class="team-member">
             <div class="member-card">
               <div class="member-avatar">
@@ -122,7 +122,7 @@ lang: cn
                 
                 <div class="member-links">
                   {% if person.email %}
-                  <a href="mailto:{{ person.email }}" class="member-link" title="邮箱">
+                  <a href="mailto:{{ person.email }}" class="member-link" title="Email">
                     <i class="fas fa-envelope"></i>
                   </a>
                   {% endif %}
@@ -137,7 +137,7 @@ lang: cn
                   </a>
                   {% endif %}
                   {% if person.website %}
-                  <a href="{{ person.website }}" target="_blank" class="member-link" title="个人网站">
+                  <a href="{{ person.website }}" target="_blank" class="member-link" title="Website">
                     <i class="fas fa-globe"></i>
                   </a>
                   {% endif %}
@@ -159,11 +159,11 @@ lang: cn
     </section>
 
     <section class="team-section">
-      <h2>贡献者</h2>
+      <h2>Contributors</h2>
       <div class="team-grid">
         {% assign contributors = site.people | where: "role", "contributor" %}
         {% for person in contributors %}
-          {% if person.lang == 'cn' %}
+          {% if person.lang == 'en' or person.lang == nil %}
           <div class="team-member">
             <div class="member-card">
               <div class="member-avatar">
@@ -210,11 +210,11 @@ lang: cn
 
   <div class="join-team">
     <div class="join-team-content">
-      <h2>加入我们的团队</h2>
-      <p>我们一直在寻找有才华的研究人员、工程师和贡献者加入我们推进生成式AI的使命。无论您对全职职位、研究合作还是开源贡献感兴趣，我们都很乐意听到您的声音。</p>
+      <h2>Join Our Team</h2>
+      <p>We're always looking for talented researchers, engineers, and contributors to join our mission of advancing generative AI. Whether you're interested in full-time positions, research collaborations, or open-source contributions, we'd love to hear from you.</p>
       <div class="join-actions">
-        <a href="/cn/contact/" class="btn btn-primary">联系我们</a>
-        <a href="https://github.com/SynerGen-AI" target="_blank" class="btn btn-secondary">查看开放问题</a>
+        <a href="/contact/" class="btn btn-primary">Get in Touch</a>
+        <a href="https://github.com/SynerGen-AI" target="_blank" class="btn btn-secondary">View Open Issues</a>
       </div>
     </div>
   </div>

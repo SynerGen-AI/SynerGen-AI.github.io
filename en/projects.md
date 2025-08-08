@@ -1,26 +1,26 @@
 ---
 layout: projects
-title: 我们的项目
-subtitle: 探索我们对生成式AI的开源贡献
-lang: cn
+title: Our Projects
+subtitle: Explore our open-source contributions to generative AI
+lang: en
 ---
 
 <div class="projects-page">
   <div class="projects-filter">
-    <h3>按类别筛选</h3>
+    <h3>Filter by Category</h3>
     <div class="filter-buttons">
-      <button class="filter-btn active" data-filter="all">所有项目</button>
-      <button class="filter-btn" data-filter="language-models">语言模型</button>
-      <button class="filter-btn" data-filter="computer-vision">计算机视觉</button>
-      <button class="filter-btn" data-filter="audio">音频与语音</button>
-      <button class="filter-btn" data-filter="multimodal">多模态</button>
-      <button class="filter-btn" data-filter="tools">工具与框架</button>
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="language-models">Language Models</button>
+      <button class="filter-btn" data-filter="computer-vision">Computer Vision</button>
+      <button class="filter-btn" data-filter="audio">Audio & Speech</button>
+      <button class="filter-btn" data-filter="multimodal">Multimodal</button>
+      <button class="filter-btn" data-filter="tools">Tools & Frameworks</button>
     </div>
   </div>
 
   <div class="projects-grid">
     {% for project in site.projects %}
-      {% if project.lang == 'cn' %}
+      {% if project.lang == 'en' or project.lang == nil %}
       <div class="project-card" data-category="{{ project.category }}">
         {% if project.image %}
         <div class="project-image">
@@ -38,7 +38,7 @@ lang: cn
               <span class="project-status status-{{ project.status | downcase }}">{{ project.status }}</span>
               {% endif %}
               {% if project.category %}
-              <span class="project-category">{{ project.category_cn | default: project.category }}</span>
+              <span class="project-category">{{ project.category | replace: '-', ' ' | capitalize }}</span>
               {% endif %}
             </div>
           </div>
@@ -53,12 +53,12 @@ lang: cn
             {% endif %}
             {% if project.demo %}
             <a href="{{ project.demo }}" target="_blank" class="project-link">
-              <i class="fas fa-external-link-alt"></i> 演示
+              <i class="fas fa-external-link-alt"></i> Demo
             </a>
             {% endif %}
             {% if project.paper %}
             <a href="{{ project.paper }}" target="_blank" class="project-link">
-              <i class="fas fa-file-pdf"></i> 论文
+              <i class="fas fa-file-pdf"></i> Paper
             </a>
             {% endif %}
           </div>
@@ -77,7 +77,7 @@ lang: cn
   </div>
   
   <div class="no-projects" style="display: none;">
-    <p>所选类别中没有找到项目。</p>
+    <p>No projects found for the selected category.</p>
   </div>
 </div>
 

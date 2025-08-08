@@ -45,9 +45,9 @@
                     
                     <div class="language-switcher">
                         {% if page.lang == 'cn' or page.url contains '/cn/' %}
-                        <a href="{{ page.url | replace: '/cn/', '/' | replace: '/cn', '/' }}" class="lang-link">EN</a>
+                        <a href="{{ '/en' | append: page.url }}" class="lang-link">EN</a>
                         {% else %}
-                        <a href="{{ '/cn' | append: page.url }}" class="lang-link">中文</a>
+                        <a href="{{ page.url | replace: '/en/', '/' | replace: '/en', '/' }}" class="lang-link">中文</a>
                         {% endif %}
                     </div>
                 </div>
