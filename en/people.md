@@ -33,6 +33,14 @@ github_members:
 {{ page.github_members | jsonify }}
 </script>
 
+<script>
+// 将GitHub成员数据传递给JavaScript
+const githubMembersData = {{ page.github_members | jsonify }};
+</script>
+
+<script src="{{ '/assets/js/cache-manager.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/cache-monitor.js' | relative_url }}"></script>
+
 <div class="join-team">
   <div class="join-team-content">
     <h2>Join Our Team</h2>

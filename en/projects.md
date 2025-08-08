@@ -3,83 +3,44 @@ layout: projects
 title: Our Projects
 subtitle: Explore our open-source contributions to generative AI
 lang: en
+github_projects:
+  - repo: "SynerGen-AI/EasyVideo"
+    category: "computer-vision"
+    image: "/assets/images/logo.png"
+    description: "a full pipeline platform for AI video generation, including a designed prompt model, video diffusion models..."
+    tags: ["AIGC", "Diffusion-Model"]
 ---
 
 <div class="projects-page">
   <div class="projects-filter">
-    <h3>Filter by Category</h3>
+    <h3>按类别筛选</h3>
     <div class="filter-buttons">
-      <button class="filter-btn active" data-filter="all">All Projects</button>
-      <button class="filter-btn" data-filter="language-models">Language Models</button>
-      <button class="filter-btn" data-filter="computer-vision">Computer Vision</button>
-      <button class="filter-btn" data-filter="audio">Audio & Speech</button>
-      <button class="filter-btn" data-filter="multimodal">Multimodal</button>
-      <button class="filter-btn" data-filter="tools">Tools & Frameworks</button>
+      <button class="filter-btn active" data-filter="all">所有项目</button>
+      <button class="filter-btn" data-filter="language-models">语言模型</button>
+      <button class="filter-btn" data-filter="computer-vision">计算机视觉</button>
+      <button class="filter-btn" data-filter="audio">音频与语音</button>
+      <button class="filter-btn" data-filter="multimodal">多模态</button>
+      <button class="filter-btn" data-filter="tools">工具与框架</button>
     </div>
   </div>
 
-  <div class="projects-grid">
-    {% for project in site.projects %}
-      {% if project.lang == 'en' or project.lang == nil %}
-      <div class="project-card" data-category="{{ project.category }}">
-        {% if project.image %}
-        <div class="project-image">
-          <img src="{{ project.image | relative_url }}" alt="{{ project.title }}">
-        </div>
-        {% endif %}
-        
-        <div class="project-content">
-          <div class="project-header">
-            <h3 class="project-title">
-              <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
-            </h3>
-            <div class="project-meta">
-              {% if project.status %}
-              <span class="project-status status-{{ project.status | downcase }}">{{ project.status }}</span>
-              {% endif %}
-              {% if project.category %}
-              <span class="project-category">{{ project.category | replace: '-', ' ' | capitalize }}</span>
-              {% endif %}
-            </div>
-          </div>
-          
-          <p class="project-description">{{ project.excerpt | strip_html | truncate: 150 }}</p>
-          
-          <div class="project-links">
-            {% if project.github %}
-            <a href="{{ project.github }}" target="_blank" class="project-link">
-              <i class="fab fa-github"></i> GitHub
-            </a>
-            {% endif %}
-            {% if project.demo %}
-            <a href="{{ project.demo }}" target="_blank" class="project-link">
-              <i class="fas fa-external-link-alt"></i> Demo
-            </a>
-            {% endif %}
-            {% if project.paper %}
-            <a href="{{ project.paper }}" target="_blank" class="project-link">
-              <i class="fas fa-file-pdf"></i> Paper
-            </a>
-            {% endif %}
-          </div>
-          
-          {% if project.tags %}
-          <div class="project-tags">
-            {% for tag in project.tags %}
-            <span class="tag">{{ tag }}</span>
-            {% endfor %}
-          </div>
-          {% endif %}
-        </div>
-      </div>
-      {% endif %}
-    {% endfor %}
+  <div class="projects-grid" id="projects-grid">
+    <!-- GitHub项目将通过JavaScript动态加载 -->
   </div>
+
+  <!-- GitHub项目数据 -->
+  <script type="application/json" id="github-projects-data">
+  {{ page.github_projects | jsonify }}
+  </script>
   
+  <script src="{{ '/assets/js/cache-manager.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/cache-monitor.js' | relative_url }}"></script>
+
   <div class="no-projects" style="display: none;">
-    <p>No projects found for the selected category.</p>
+    <p>Nothing found, but we are developing!!!</p>
   </div>
 </div>
+
 
 <style>
 .projects-page {
@@ -289,6 +250,14 @@ lang: en
 }
 </style>
 
+  <!-- GitHub projects data -->
+  <script type="application/json" id="github-projects-data">
+  {{ page.github_projects | jsonify }}
+  </script>
+  
+  <script src="{{ '/assets/js/cache-manager.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/cache-monitor.js' | relative_url }}"></script>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const filterButtons = document.querySelectorAll('.filter-btn');
@@ -323,5 +292,196 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-});
+  
+  // Initialize GitHub projects
+   initializeGitHubProjects();
+ });
+ 
+ // GitHub projects auto-rendering functionality
+ async function initializeGitHubProjects() {
+   const projectsDataElement = document.getElementById('github-projects-data');
+   if (projectsDataElement) {
+     try {
+       const projectsData = JSON.parse(projectsDataElement.textContent);
+       await renderGitHubProjects(projectsData);
+       initializeProjectFilter();
+     } catch (error) {
+       console.error('Failed to parse GitHub projects data:', error);
+       showErrorMessage('Failed to load project data');
+     }
+   }
+ }
+ 
+ async function renderGitHubProjects(projectsData) {
+   const projectsGrid = document.getElementById('projects-grid');
+   if (!projectsGrid) return;
+   
+   // Show loading state
+   projectsGrid.innerHTML = '<div class="loading-message"><i class="fas fa-spinner fa-spin"></i> Loading GitHub projects...</div>';
+   
+   try {
+     const projectCards = await Promise.all(
+       projectsData.map(project => fetchAndRenderProject(project))
+     );
+     
+     projectsGrid.innerHTML = projectCards.join('');
+   } catch (error) {
+     projectsGrid.innerHTML = '<div class="error-message"><i class="fas fa-exclamation-triangle"></i> Failed to load GitHub projects</div>';
+     console.error('Failed to load GitHub projects:', error);
+   }
+ }
+ 
+ async function fetchAndRenderProject(projectConfig) {
+   try {
+     // Use cache manager to get repository data
+     const repoData = await window.gitHubCache.getGitHubRepo(projectConfig.repo);
+     return createProjectCard(repoData, projectConfig);
+     
+   } catch (error) {
+     console.error(`Failed to get GitHub repository ${projectConfig.repo} info:`, error);
+     return createErrorProjectCard(projectConfig);
+   }
+ }
+ 
+ function createProjectCard(repoData, config) {
+   const imageUrl = config.image || 'https://via.placeholder.com/400x200?text=No+Image';
+   const description = config.description || repoData.description || 'No description available';
+   const tags = config.tags || [];
+   
+   return `
+     <div class="project-card github-project" data-category="${config.category}">
+       <div class="project-image">
+         <img src="${imageUrl}" alt="${repoData.name}" loading="lazy">
+       </div>
+       
+       <div class="project-content">
+         <div class="project-header">
+           <h3 class="project-title">
+             <a href="${repoData.html_url}" target="_blank">${repoData.name}</a>
+           </h3>
+           <div class="project-meta">
+             <span class="project-category">${getCategoryName(config.category)}</span>
+             ${repoData.language ? `<span class="project-language">${repoData.language}</span>` : ''}
+           </div>
+         </div>
+         
+         <p class="project-description">${description}</p>
+         
+         <div class="github-stats">
+           <span class="github-stat">
+             <i class="fas fa-star"></i> ${formatNumber(repoData.stargazers_count)}
+           </span>
+           <span class="github-stat">
+             <i class="fas fa-code-branch"></i> ${formatNumber(repoData.forks_count)}
+           </span>
+           <span class="github-stat">
+             <i class="fas fa-eye"></i> ${formatNumber(repoData.watchers_count)}
+           </span>
+           ${repoData.open_issues_count ? `<span class="github-stat"><i class="fas fa-exclamation-circle"></i> ${repoData.open_issues_count}</span>` : ''}
+         </div>
+         
+         <div class="project-links">
+           <a href="${repoData.html_url}" target="_blank" class="project-link">
+             <i class="fab fa-github"></i> GitHub
+           </a>
+           ${repoData.homepage ? `<a href="${repoData.homepage}" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Website</a>` : ''}
+         </div>
+         
+         ${tags.length > 0 ? `
+         <div class="project-tags">
+           ${tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+         </div>
+         ` : ''}
+       </div>
+     </div>
+   `;
+ }
+ 
+ function createErrorProjectCard(config) {
+   return `
+     <div class="project-card error-card" data-category="${config.category}">
+       <div class="project-content">
+         <div class="project-header">
+           <h3 class="project-title">${config.repo}</h3>
+           <div class="project-meta">
+             <span class="project-category">${getCategoryName(config.category)}</span>
+           </div>
+         </div>
+         
+         <p class="project-description">${config.description || 'Unable to load project information'}</p>
+         
+         <div class="error-message">
+           <i class="fas fa-exclamation-triangle"></i> Unable to fetch project data from GitHub
+         </div>
+         
+         ${config.tags && config.tags.length > 0 ? `
+         <div class="project-tags">
+           ${config.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+         </div>
+         ` : ''}
+       </div>
+     </div>
+   `;
+ }
+ 
+ function getCategoryName(category) {
+   const categoryNames = {
+     'language-models': 'Language Models',
+     'computer-vision': 'Computer Vision',
+     'audio': 'Audio & Speech',
+     'multimodal': 'Multimodal',
+     'tools': 'Tools & Frameworks'
+   };
+   return categoryNames[category] || category;
+ }
+ 
+ function formatNumber(num) {
+   if (num >= 1000) {
+     return (num / 1000).toFixed(1) + 'k';
+   }
+   return num.toString();
+ }
+ 
+ function showErrorMessage(message) {
+   const projectsGrid = document.getElementById('projects-grid');
+   if (projectsGrid) {
+     projectsGrid.innerHTML = `<div class="error-message"><i class="fas fa-exclamation-triangle"></i> ${message}</div>`;
+   }
+ }
+ 
+ // Project filtering functionality
+ function initializeProjectFilter() {
+   const filterButtons = document.querySelectorAll('.filter-btn');
+   const noProjectsMessage = document.querySelector('.no-projects');
+   
+   filterButtons.forEach(button => {
+     button.addEventListener('click', function() {
+       const filter = this.getAttribute('data-filter');
+       
+       // Update active button
+       filterButtons.forEach(btn => btn.classList.remove('active'));
+       this.classList.add('active');
+       
+       // Filter projects
+       const projectCards = document.querySelectorAll('.project-card');
+       let visibleCount = 0;
+       projectCards.forEach(card => {
+         const category = card.getAttribute('data-category');
+         if (filter === 'all' || category === filter) {
+           card.style.display = 'block';
+           visibleCount++;
+         } else {
+           card.style.display = 'none';
+         }
+       });
+       
+       // Show/hide no projects message
+       if (visibleCount === 0) {
+         noProjectsMessage.style.display = 'block';
+       } else {
+         noProjectsMessage.style.display = 'none';
+       }
+     });
+   });
+ }
 </script>

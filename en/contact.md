@@ -70,49 +70,8 @@ Explore our open-source projects and contribute to our codebase:
   
   <button type="submit" class="btn btn-primary">Send Message</button>
 </form>
-
-## Office Hours
-
-Our team is distributed globally, but we hold regular virtual office hours:
-
-- **Research Office Hours**: Tuesdays, 2:00 PM UTC
-- **Developer Office Hours**: Thursdays, 6:00 PM UTC
-- **Community Q&A**: Saturdays, 10:00 AM UTC
-
-*Join our Discord server for links to these sessions.*
-
-## Collaboration Opportunities
-
-### For Researchers
-- Joint research projects
-- Paper collaborations
-- Dataset sharing
-- Conference presentations
-
-### For Developers
-- Open-source contributions
-- Tool development
-- Code reviews
-- Documentation improvements
-
-### For Organizations
-- Strategic partnerships
-- Sponsored research
-- Technology licensing
-- Educational collaborations
-
-### For Students
-- Internship programs
-- Thesis supervision
-- Research mentorship
-- Educational resources
-
-## Response Time
-
-We aim to respond to all inquiries within 48 hours during business days. For urgent matters, please mark your email as "URGENT" in the subject line.
-
 ---
-
+*We aim to respond to all inquiries within 48 hours during business days. For urgent matters, please mark your email as "URGENT" in the subject line.*
 *We respect your privacy and will never share your contact information with third parties. See our [Privacy Policy](/privacy/) for more details.*
 
 <style>

@@ -4,21 +4,11 @@ title: 我们的项目
 subtitle: 探索我们对生成式AI的开源贡献
 lang: cn
 github_projects:
-  - repo: "microsoft/vscode"
-    category: "tools"
-    image: "https://code.visualstudio.com/assets/images/code-stable.png"
-    description: "Visual Studio Code是一个轻量级但功能强大的源代码编辑器"
-    tags: ["编辑器", "开发工具", "TypeScript"]
-  - repo: "facebook/react"
-    category: "tools"
-    image: "https://reactjs.org/logo-og.png"
-    description: "用于构建用户界面的JavaScript库"
-    tags: ["前端", "JavaScript", "UI框架"]
-  - repo: "pytorch/pytorch"
-    category: "language-models"
-    image: "https://pytorch.org/assets/images/pytorch-logo.png"
-    description: "基于Python的科学计算包，主要针对深度学习应用"
-    tags: ["深度学习", "Python", "机器学习"]
+  - repo: "SynerGen-AI/EasyVideo"
+    category: "computer-vision"
+    image: "/assets/images/logo.png"
+    description: "一个全栈的视频生成平台,包含promt model, video diffusion model等模块"
+    tags: ["AIGC", "扩散模型"]
 ---
 
 <div class="projects-page">
@@ -51,7 +41,6 @@ github_projects:
   </div>
 </div>
 
-</script>
 
 <style>
 .projects-page {
