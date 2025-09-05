@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.default_lang }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>{% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+    
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | relative_url }}">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    {% seo %}
+</head>
+<body>
+    <header class="site-header">
+        <div class="wrapper">
+            <nav class="navbar">
+                <div class="navbar-brand">
+                    <a href="{{ '/' | relative_url }}">
+                        <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="SynerGen-AI Logo" class="brand-logo">
+                        <span class="logo">SynerGen-AI</span>
+                    </a>
+                </div>
+                
+                <div class="navbar-menu">
+                    <div class="navbar-nav">
+                        {% assign current_lang = page.lang | default: site.default_lang %}
+                        {% assign nav_items = site.navigation[current_lang] %}
+                        
+                        {% for item in nav_items %}
+                        <a href="{{ item.url | relative_url }}" class="nav-link {% if page.url == item.url %}active{% endif %}">
+                            {{ item.title }}
+                        </a>
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="language-switcher">
+                        {% if page.lang == 'cn' or page.url contains '/cn/' %}
+                        <a href="{{ '/en' | append: page.url }}" class="lang-link">EN</a>
+                        {% else %}
+                        <a href="{{ page.url | replace: '/en/', '/' | replace: '/en', '/' }}" class="lang-link">中文</a>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="page-content">
+        {{ content }}
+    </main>
+    
+    <footer class="site-footer">
+        <div class="wrapper">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>SynerGen-AI</h3>
+                    <p>{{ site.description }}</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>{% if page.lang == 'cn' %}快速链接{% else %}Quick Links{% endif %}</h4>
+                    <ul>
+                        {% for item in nav_items %}
+                        <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>{% if page.lang == 'cn' %}关注我们{% else %}Follow Us{% endif %}</h4>
+                    <div class="social-links">
+                        <a href="https://github.com/{{ site.github_username }}" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:{{ site.email }}">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; {{ 'now' | date: "%Y" }} SynerGen-AI. {% if page.lang == 'cn' %}保留所有权利{% else %}All rights reserved{% endif %}.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

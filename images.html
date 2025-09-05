@@ -1,0 +1,159 @@
+---
+layout: default
+lang: cn
+title: 图片展示 - SynerGen-AI
+permalink: /images/
+hero:
+  title: "AI生成图片展示"
+  subtitle: "欣赏我们AI技术创作的精彩图片作品，体验生成式AI在图像创作领域的无限可能。"
+---
+
+<div class="images-page">
+    <!-- Hero Section -->
+    <section class="images-hero">
+        <div class="wrapper">
+            <div class="images-hero-content">
+                <h1 class="images-hero-title">{{ page.hero.title }}</h1>
+                <p class="images-hero-subtitle">{{ page.hero.subtitle }}</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Gallery -->
+    <section class="image-gallery">
+        <div class="wrapper">
+          <div class="section-header">
+            <h2 class="section-title">图片矩阵</h2>
+          </div>
+          <div class="gallery-grid">
+            
+            {% assign images = site.static_files | where_exp: "file", "file.path contains '/assets/images/'" %}
+            {% for image in images %}
+              {% if image.extname == ".jpg" or image.extname == ".jpeg" or image.extname == ".png" or image.extname == ".gif" or image.extname == ".webp" %}
+                <div class="gallery-item">
+                    <img 
+                    class="gallery-image" 
+                    src="{{ image.path | relative_url }}" 
+                    alt="{{ image.name }}"
+                    loading="lazy"
+                    onload="adjustImageSize(this)">
+                </div>
+              {% endif %}
+            {% endfor %}
+
+          </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="images-cta">
+        <div class="wrapper">
+            <div class="cta-content">
+                <h2 class="cta-title">想要创建自己的AI图片？</h2>
+                <p class="cta-description">加入我们的社区，开始使用先进的AI图像生成技术</p>
+                <div class="cta-actions">
+                    <a href="/contact/" class="btn btn-primary">联系我们</a>
+                    <a href="/projects/" class="btn btn-secondary">查看项目</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Image Modal -->
+<div id="imageModal" class="image-modal">
+    <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <div class="modal-image-container">
+            <img id="modalImage" src="" alt="">
+        </div>
+        <div class="modal-image-info">
+            <h3 id="modalImageTitle"></h3>
+            <p id="modalImageDescription"></p>
+        </div>
+    </div>
+</div>
+
+<!-- Script: 动态宽高比调整 + Modal -->
+<script>
+function adjustImageSize(img) {
+    const aspectRatio = img.naturalWidth / img.naturalHeight;
+    if (aspectRatio > 1.2) {
+        img.style.width = "100%";
+        img.style.height = "auto";
+    } else {
+        img.style.width = "auto";
+        img.style.height = "100%";
+    }
+}
+
+// Modal 功能
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImage");
+const modalTitle = document.getElementById("modalImageTitle");
+const modalDesc = document.getElementById("modalImageDescription");
+const modalClose = document.querySelector(".modal-close");
+
+document.querySelectorAll(".gallery-item img").forEach(img => {
+    img.addEventListener("click", function() {
+        modal.style.display = "flex";
+        modalImg.src = this.src;
+        modalTitle.textContent = this.alt || this.src.split('/').pop();
+        modalDesc.textContent = "AI生成图片";
+    });
+});
+
+modalClose.onclick = () => { modal.style.display = "none"; };
+modal.onclick = (e) => { if(e.target === modal) modal.style.display = "none"; };
+</script>
+
+<!-- 样式示例 -->
+<style>
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+}
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gallery-image {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  cursor: pointer;
+}
+.image-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.8);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  max-width: 80%;
+  border-radius: 8px;
+  text-align: center;
+}
+.modal-image-container img {
+  max-width: 100%;
+  max-height: 70vh;
+}
+.modal-close {
+  position: absolute;
+  top: 20px; right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+}
+</style>

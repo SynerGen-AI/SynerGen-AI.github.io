@@ -14,9 +14,9 @@ github_members:
 ---
 
 <div class="people-page">
-  <div class="team-intro">
+  <!-- <div class="team-intro">
     <p>SynerGen-AI汇聚了来自世界各地的多元化研究人员、工程师和AI爱好者团队。我们的团队结合了机器学习、软件工程和领域专业知识的深厚专业技能，致力于推进生成式AI领域的发展。</p>
-  </div>
+  </div> -->
 
   <div class="team-sections">
     <section class="team-section">

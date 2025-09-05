@@ -1,0 +1,140 @@
+---
+layout: default
+lang: cn
+title: 视频展示 - SynerGen-AI
+permalink: /videos/
+hero:
+title: "AI生成视频展示"
+subtitle: "探索我们最新的AI视频生成技术和创新成果，体验前沿的生成式AI在视频创作领域的突破。"
+---
+
+<div class="videos-page">
+    <!-- Hero Section -->
+    <section class="videos-hero">
+        <div class="wrapper">
+            <div class="videos-hero-content">
+                <h1 class="videos-hero-title">{{ page.title }}</h1>
+                <p class="videos-hero-subtitle">{{ page.subtitle }}</p>
+            </div>
+            <div class="videos-hero-visual">
+                <div class="videos-animation">
+                    <div class="video-nodes">
+                        <div class="video-node video-1"></div>
+                        <div class="video-node video-2"></div>
+                        <div class="video-node video-3"></div>
+                        <div class="video-node video-4"></div>
+                        <div class="video-node video-5"></div>
+                        <div class="video-connection video-conn-1"></div>
+                        <div class="video-connection video-conn-2"></div>
+                        <div class="video-connection video-conn-3"></div>
+                        <div class="video-connection video-conn-4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Gallery -->
+    <section class="video-gallery">
+        <div class="wrapper">
+            <!-- <div class="section-header">
+                <h2 class="section-title">视频矩阵</h2>
+            </div> -->
+            <div class="gallery-grid">
+
+                {% assign videos = site.static_files | where: "extname", ".mp4" %}
+                {% for video in videos %}
+                {% if video.path contains '/assets/videos/' %}
+                <div class="video-wrapper">
+                    <video class="gallery-video" preload="metadata" controls>
+                        <source src="{{ video.path | relative_url }}" type="video/mp4">
+                        您的浏览器不支持视频播放。
+                    </video>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="videos-cta">
+        <div class="wrapper">
+            <div class="cta-content">
+                <h2 class="cta-title">想要创建自己的AI视频？</h2>
+                <p class="cta-description">加入我们的社区，开始使用先进的AI视频生成技术</p>
+                <div class="cta-actions">
+                    <a href="/contact/" class="btn btn-primary">联系我们</a>
+                    <a href="/projects/" class="btn btn-secondary">查看项目</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- JS: 动态调整视频比例 -->
+<!-- <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const videos = document.querySelectorAll(".gallery-video");
+
+        videos.forEach(video => {
+            video.addEventListener("loadedmetadata", function () {
+                const w = video.videoWidth;
+                const h = video.videoHeight;
+
+                if (w && h) {
+                    const wrapper = video.closest(".video-wrapper");
+                    wrapper.style.aspectRatio = `${w} / ${h}`;
+                }
+            });
+        });
+    });
+</script> -->
+
+<style>
+    /* 网格布局 */
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 20px;
+    }
+
+    /* 单个卡片 */
+    .gallery-item {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.2s ease;
+    }
+
+    .gallery-item:hover {
+        transform: translateY(-5px);
+    }
+
+    /* 视频容器，保持比例 */
+    .video-wrapper {
+        width: 100%;
+        background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    /* 视频 */
+    .gallery-video {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+        /* 保持比例，避免裁剪 */
+    }
+
+    /* 信息文字 */
+    .gallery-info {
+        padding: 10px;
+        text-align: center;
+    }
+</style>

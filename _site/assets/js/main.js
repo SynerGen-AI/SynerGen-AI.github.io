@@ -395,6 +395,37 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    // Video matrix: lazy load + hover preview
+    const matrix = document.querySelector('.video-masonry');
+    if (matrix) {
+        const tiles = matrix.querySelectorAll('.tile-video');
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const v = entry.target;
+                    if (v.dataset.src && !v.src) {
+                        v.src = v.dataset.src;
+                    }
+                    // Autoplay muted preview
+                    v.play().catch(() => {});
+                    io.unobserve(v);
+                }
+            });
+        }, { rootMargin: '200px 0px' });
+
+        tiles.forEach(v => io.observe(v));
+
+        matrix.addEventListener('mouseenter', (e) => {
+            const v = e.target.closest('.video-tile')?.querySelector('.tile-video');
+            if (v) v.play().catch(() => {});
+        }, true);
+
+        matrix.addEventListener('mouseleave', (e) => {
+            const v = e.target.closest('.video-tile')?.querySelector('.tile-video');
+            if (v) v.pause();
+        }, true);
+    }
 });
 
 // Add CSS for additional animations and mobile menu

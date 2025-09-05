@@ -41,6 +41,10 @@ navigation:
       url: "/people/"
     - title: "项目"
       url: "/projects/"
+    - title: "视频展示"
+      url: "/videos/"
+    - title: "图片展示"
+      url: "/images/"
     - title: "联系我们"
       url: "/contact/"
   en:
@@ -50,6 +54,10 @@ navigation:
       url: "/en/people/"
     - title: "Projects"
       url: "/en/projects/"
+    - title: "Videos"
+      url: "/en/videos/"
+    - title: "Images"
+      url: "/en/images/"
     - title: "Contact"
       url: "/en/contact/"
 
@@ -77,3 +85,8 @@ defaults:
       type: "projects"
     values:
       layout: "project"
+  - scope:
+      path: ""
+      type: "videos"
+    values:
+      layout: "videos"
