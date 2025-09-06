@@ -38,8 +38,7 @@ github_members:
 const githubMembersData = {{ page.github_members | jsonify }};
 </script>
 
-<script src="{{ '/assets/js/cache-manager.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/cache-monitor.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/json-cache-manager.js' | relative_url }}"></script>
 <script src="{{ '/js/people.js' | relative_url }}"></script>
 
 <div class="join-team">

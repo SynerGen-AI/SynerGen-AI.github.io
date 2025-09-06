@@ -6,7 +6,7 @@ lang: cn
 github_projects:
   - repo: "SynerGen-AI/EasyVideo"
     category: "computer-vision"
-    image: "/assets/images/logo.png"
+    image: "/assets/team/EasyVideo.png"
     description: "一个全栈的视频生成平台,包含promt model, video diffusion model等模块"
     tags: ["AIGC", "扩散模型"]
 ---
@@ -33,8 +33,7 @@ github_projects:
   {{ page.github_projects | jsonify }}
   </script>
   
-  <script src="{{ '/assets/js/cache-manager.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/cache-monitor.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/json-cache-manager.js' | relative_url }}"></script>
 <script src="{{ '/js/projects.js' | relative_url }}"></script>
 
   <div class="no-projects" style="display: none;">

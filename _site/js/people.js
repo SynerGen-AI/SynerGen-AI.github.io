@@ -41,8 +41,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     async function fetchAndRenderMember(memberConfig) {
         try {
-            // 使用缓存管理器获取用户数据
-            const userData = await window.gitHubCache.getGitHubUser(memberConfig.username);
+            // 使用JSON缓存管理器获取用户数据
+            const userData = await window.jsonCache.getGitHubUser(memberConfig.username);
             return createMemberCard(userData, memberConfig.role);
             
         } catch (error) {

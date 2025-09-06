@@ -40,8 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     async function fetchAndRenderProject(projectConfig) {
         try {
-            // 使用缓存管理器获取仓库数据
-            const repoData = await window.gitHubCache.getGitHubRepo(projectConfig.repo);
+            // 使用JSON缓存管理器获取仓库数据
+            const repoData = await window.jsonCache.getGitHubRepo(projectConfig.repo);
             return createProjectCard(repoData, projectConfig);
             
         } catch (error) {

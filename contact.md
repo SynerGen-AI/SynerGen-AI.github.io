@@ -44,14 +44,14 @@ lang: cn
         <div class="contact-content">
             <h3>联系电话</h3>
             <p class="contact-value">
-                <a href="tel:+86-400-123-4567">+86-400-123-4567</a>
+                <a href="tel:+86-131-6094-8002">+86-131-6094-8002</a>
             </p>
             <p class="contact-description">工作日 9:00-18:00</p>
         </div>
     </div>
 
     <!-- 联系邮箱 -->
-    <div class="contact-card email-card">
+    <!-- <div class="contact-card email-card">
         <div class="contact-icon">
             <i class="fas fa-envelope"></i>
         </div>
@@ -62,10 +62,10 @@ lang: cn
             </p>
             <p class="contact-description">24小时内回复</p>
         </div>
-    </div>
+    </div> -->
 
     <!-- 办公地点 -->
-    <div class="contact-card location-card">
+    <!-- <div class="contact-card location-card">
         <div class="contact-icon">
             <i class="fas fa-map-marker-alt"></i>
         </div>
@@ -74,7 +74,7 @@ lang: cn
             <p class="contact-value">北京市海淀区中关村大街1号</p>
             <p class="contact-description">海龙大厦A座15层</p>
         </div>
-    </div>
+    </div> -->
 </div>
 
 <!-- ## 联系表单

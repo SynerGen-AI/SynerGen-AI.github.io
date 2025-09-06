@@ -1,0 +1,240 @@
+/**
+ * 神经网络组件样式
+ * 可复用的神经网络动画组件
+ */
+
+/* 神经网络组件容器 */
+.neural-network-component {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+/* 神经网络节点容器 */
+.neural-nodes {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    animation: neuralPulse 4s ease-in-out infinite;
+}
+
+/* 神经网络节点 */
+.neural-node {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+    animation: neuralNodePulse 2.5s ease-in-out infinite;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.neural-node:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.8);
+}
+
+/* 节点位置 */
+.neural-1 {
+    top: 20%;
+    left: 20%;
+    background: linear-gradient(135deg, #10b981, #059669);
+    animation-delay: 0s;
+}
+
+.neural-2 {
+    top: 20%;
+    right: 20%;
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    animation-delay: 0.6s;
+}
+
+.neural-3 {
+    bottom: 20%;
+    right: 20%;
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    animation-delay: 1.2s;
+}
+
+.neural-4 {
+    bottom: 20%;
+    left: 20%;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    animation-delay: 1.8s;
+}
+
+/* 神经网络连接线 */
+.neural-connection {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #10b981, transparent);
+    animation: neuralFlow 3.5s ease-in-out infinite;
+}
+
+/* 连接线位置和样式 */
+.neural-conn-1 {
+    top: 29%;
+    left: 29%;
+    width: 42%;
+    animation-delay: 0s;
+}
+
+.neural-conn-2 {
+    top: 29%;
+    right: 29%;
+    width: 42%;
+    transform: rotate(90deg);
+    transform-origin: right center;
+    animation-delay: 0.5s;
+}
+
+.neural-conn-3 {
+    bottom: 29%;
+    right: 29%;
+    width: 42%;
+    transform: rotate(180deg);
+    transform-origin: right center;
+    animation-delay: 1s;
+}
+
+.neural-conn-4 {
+    bottom: 29%;
+    left: 29%;
+    width: 42%;
+    transform: rotate(270deg);
+    transform-origin: left center;
+    animation-delay: 1.5s;
+}
+
+.neural-conn-5 {
+    top: 29%;
+    left: 29%;
+    width: 60%;
+    transform: rotate(45deg);
+    transform-origin: left center;
+    animation-delay: 2s;
+}
+
+.neural-conn-6 {
+    top: 29%;
+    right: 29%;
+    width: 60%;
+    transform: rotate(-45deg);
+    transform-origin: right center;
+    animation-delay: 2.5s;
+}
+
+/* 动画定义 */
+@keyframes neuralPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.02);
+        opacity: 0.8;
+    }
+}
+
+@keyframes neuralNodePulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+}
+
+@keyframes neuralFlow {
+    0% {
+        opacity: 0.3;
+        transform: scaleX(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+    100% {
+        opacity: 0.3;
+        transform: scaleX(0);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .neural-network-component {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .neural-node {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .neural-network-component {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .neural-node {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+/* 大屏幕优化 */
+@media (min-width: 1600px) {
+    .neural-network-component {
+        width: 350px;
+        height: 350px;
+    }
+    
+    .neural-node {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+/* 自定义尺寸支持 */
+.neural-network-component[data-width] {
+    width: var(--neural-width, 300px);
+}
+
+.neural-network-component[data-height] {
+    height: var(--neural-height, 300px);
+}
+
+/* 主题变体 */
+.neural-network-component.theme-blue .neural-node {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+.neural-network-component.theme-blue .neural-connection {
+    background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+}
+
+.neural-network-component.theme-purple .neural-node {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+}
+
+.neural-network-component.theme-purple .neural-connection {
+    background: linear-gradient(90deg, transparent, #8b5cf6, transparent);
+}
+
+.neural-network-component.theme-orange .neural-node {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+}
+
+.neural-network-component.theme-orange .neural-connection {
+    background: linear-gradient(90deg, transparent, #f59e0b, transparent);
+}

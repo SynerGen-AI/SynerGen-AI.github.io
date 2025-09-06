@@ -16,15 +16,7 @@ subtitle: "探索我们最新的AI视频生成技术和创新成果，体验前�
                 <h1 class="videos-hero-title">{{ page.title }}</h1>
                 <p class="videos-hero-subtitle">{{ page.subtitle }}</p>
             </div>
-            <div class="team-nodes">
-                <div class="team-node team-1"></div>
-                <div class="team-node team-2"></div>
-                <div class="team-node team-3"></div>
-                <div class="team-node team-4"></div>
-                <div class="team-connection team-conn-1"></div>
-                <div class="team-connection team-conn-2"></div>
-                <div class="team-connection team-conn-3"></div>
-            </div>
+            {% include neural-network.html width=300 height=300 theme="blue" %}
         </div>
     </section>
 
@@ -107,4 +99,6 @@ subtitle: "探索我们最新的AI视频生成技术和创新成果，体验前�
 
 <!-- 引入视频页面专用样式和脚本 -->
 <link rel="stylesheet" href="{{ '/css/videos.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/neural-network.css' | relative_url }}">
 <script src="{{ '/js/videos.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/neural-network.js' | relative_url }}"></script>
