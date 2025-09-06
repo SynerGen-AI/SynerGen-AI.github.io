@@ -74,43 +74,5 @@ Explore our open-source projects and contribute to our codebase:
 *We aim to respond to all inquiries within 48 hours during business days. For urgent matters, please mark your email as "URGENT" in the subject line.*
 *We respect your privacy and will never share your contact information with third parties. See our [Privacy Policy](/privacy/) for more details.*
 
-<style>
-.contact-form {
-  max-width: 600px;
-  margin: 2rem 0;
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: #1e293b;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 0.75rem;
-  border: 2px solid #e2e8f0;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #2563eb;
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-</style>
+<!-- 引入联系页面专用样式 -->
+<link rel="stylesheet" href="{{ '/css/contact.css' | relative_url }}">

@@ -1,7 +1,7 @@
 ---
 layout: default
 lang: cn
-title: 图片展示 - SynerGen-AI
+title: AI图片展示 - SynerGen-AI
 permalink: /images/
 hero:
   title: "AI生成图片展示"
@@ -16,6 +16,15 @@ hero:
                 <h1 class="images-hero-title">{{ page.hero.title }}</h1>
                 <p class="images-hero-subtitle">{{ page.hero.subtitle }}</p>
             </div>
+            <div class="team-nodes">
+              <div class="team-node team-1"></div>
+              <div class="team-node team-2"></div>
+              <div class="team-node team-3"></div>
+              <div class="team-node team-4"></div>
+              <div class="team-connection team-conn-1"></div>
+              <div class="team-connection team-conn-2"></div>
+              <div class="team-connection team-conn-3"></div>
+          </div>
         </div>
     </section>
 
@@ -67,93 +76,17 @@ hero:
         <div class="modal-image-container">
             <img id="modalImage" src="" alt="">
         </div>
-        <div class="modal-image-info">
+        <div class="modal-video-nav">
+            <button id="prevImage">&#10094;</button>
+            <button id="nextImage">&#10095;</button>
+        </div>
+        <!-- <div class="modal-image-info">
             <h3 id="modalImageTitle"></h3>
             <p id="modalImageDescription"></p>
-        </div>
+        </div> -->
     </div>
 </div>
 
-<!-- Script: 动态宽高比调整 + Modal -->
-<script>
-function adjustImageSize(img) {
-    const aspectRatio = img.naturalWidth / img.naturalHeight;
-    if (aspectRatio > 1.2) {
-        img.style.width = "100%";
-        img.style.height = "auto";
-    } else {
-        img.style.width = "auto";
-        img.style.height = "100%";
-    }
-}
-
-// Modal 功能
-const modal = document.getElementById("imageModal");
-const modalImg = document.getElementById("modalImage");
-const modalTitle = document.getElementById("modalImageTitle");
-const modalDesc = document.getElementById("modalImageDescription");
-const modalClose = document.querySelector(".modal-close");
-
-document.querySelectorAll(".gallery-item img").forEach(img => {
-    img.addEventListener("click", function() {
-        modal.style.display = "flex";
-        modalImg.src = this.src;
-        modalTitle.textContent = this.alt || this.src.split('/').pop();
-        modalDesc.textContent = "AI生成图片";
-    });
-});
-
-modalClose.onclick = () => { modal.style.display = "none"; };
-modal.onclick = (e) => { if(e.target === modal) modal.style.display = "none"; };
-</script>
-
-<!-- 样式示例 -->
-<style>
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 16px;
-}
-.gallery-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  background: #f8f8f8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.gallery-image {
-  max-width: 100%;
-  max-height: 300px;
-  object-fit: contain;
-  cursor: pointer;
-}
-.image-modal {
-  display: none;
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.8);
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-.modal-content {
-  background: #fff;
-  padding: 20px;
-  max-width: 80%;
-  border-radius: 8px;
-  text-align: center;
-}
-.modal-image-container img {
-  max-width: 100%;
-  max-height: 70vh;
-}
-.modal-close {
-  position: absolute;
-  top: 20px; right: 20px;
-  font-size: 24px;
-  cursor: pointer;
-  color: #fff;
-}
-</style>
+<!-- 引入图片页面专用样式和脚本 -->
+<link rel="stylesheet" href="{{ '/css/images.css' | relative_url }}">
+<script src="{{ '/js/images.js' | relative_url }}"></script>

@@ -133,10 +133,11 @@ body {
 }
 
 /* Main Content */
-.page-content {
+/* .page-content {
+    width: 1800px;
     margin-top: 80px;
     min-height: calc(100vh - 80px);
-}
+} */
 
 /* Hero Section */
 .hero {
@@ -344,7 +345,7 @@ body {
     font-weight: 700;
     text-align: center;
     margin-bottom: 3rem;
-    color: #1e293b;
+    color: #fff;
 }
 
 .features-grid {
@@ -609,7 +610,7 @@ body {
 }
 
 .page-content {
-    max-width: 1200px;
+    max-width: 1800px;
     margin: 0 auto;
     line-height: 1.8;
 }
