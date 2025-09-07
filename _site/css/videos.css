@@ -1,6 +1,25 @@
 /* videos.css - 视频页面专用样式 */
 
-/* Flexbox 行方向布局 */
+/* 视频画廊容器 - 嵌套Flexbox布局 */
+.video-gallery-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    padding: 20px 0;
+}
+
+/* 视频列 */
+.video-column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 0;
+    gap: 16px;
+}
+
+/* 兼容旧的Flexbox布局 */
 .gallery-grid {
     display: flex;
     flex-direction: row;
@@ -122,26 +141,41 @@
 }
 
 /* 响应式设计 */
-@media (max-width: 1200px) {
-    .gallery-grid {
-        gap: 18px;
+/* 大屏幕和中等屏幕：3列布局 (默认) */
+@media (min-width: 769px) {
+    .video-gallery-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 16px;
     }
     
-    .video-wrapper {
-        flex: 1 1 calc(50% - 9px); /* 2列布局 */
-        min-width: 280px;
+    .video-column {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        width: 0;
+        gap: 16px;
     }
 }
 
+/* 手机端：1列布局 */
 @media (max-width: 768px) {
-    .gallery-grid {
+    .video-gallery-container {
+        display: flex;
+        flex-direction: column;
         gap: 15px;
         padding: 15px 0;
     }
     
+    .video-column {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+    
     .video-wrapper {
-        flex: 1 1 calc(50% - 7.5px); /* 2列布局 */
-        min-width: 250px;
         border-radius: 8px;
     }
     
@@ -154,15 +188,15 @@
     }
 }
 
+/* 超小屏幕：优化间距 */
 @media (max-width: 480px) {
-    .gallery-grid {
+    .video-gallery-container {
         gap: 12px;
         padding: 12px 0;
     }
     
-    .video-wrapper {
-        flex: 1 1 100%; /* 1列布局 */
-        min-width: 100%;
+    .video-column {
+        gap: 12px;
     }
     
     .video-wrapper::after {

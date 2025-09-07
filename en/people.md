@@ -38,8 +38,7 @@ github_members:
 const githubMembersData = {{ page.github_members | jsonify }};
 </script>
 
-<script src="{{ '/assets/js/cache-manager.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/cache-monitor.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/json-cache-manager.js' | relative_url }}"></script>
 <script src="{{ '/js/people.js' | relative_url }}"></script>
 
 <div class="join-team">
@@ -47,7 +46,7 @@ const githubMembersData = {{ page.github_members | jsonify }};
     <h2>Join Our Team</h2>
     <p>We are always looking for talented researchers, engineers, and contributors to join us in advancing the mission of generative AI. Whether you are interested in full-time positions, research collaborations, or open source contributions, we would love to hear from you.</p>
     <div class="join-actions">
-      <a href="/contact/" class="btn btn-primary">Contact Us</a>
+      <a href="/en/contact/" class="btn btn-primary">Contact Us</a>
       <a href="https://github.com/SynerGen-AI" target="_blank" class="btn btn-secondary">View Open Issues</a>
     </div>
   </div>

@@ -9,92 +9,99 @@ subtitle: "探索我们最新的AI视频生成技术和创新成果，体验前�
 ---
 
 <div class="videos-page">
-    <!-- Hero Section -->
-    <section class="videos-hero">
-        <div class="wrapper">
-            <div class="videos-hero-content">
-                <h1 class="videos-hero-title">{{ page.title }}</h1>
-                <p class="videos-hero-subtitle">{{ page.subtitle }}</p>
-            </div>
-            {% include neural-network.html width=300 height=300 theme="blue" %}
-        </div>
-    </section>
+  <!-- Hero Section -->
+  <section class="videos-hero">
+    <div class="wrapper">
+      <div class="videos-hero-content">
+        <h1 class="videos-hero-title">{{ page.title }}</h1>
+        <p class="videos-hero-subtitle">{{ page.subtitle }}</p>
+      </div>
+      <div class="team-nodes">
+        <div class="team-node team-1"></div>
+        <div class="team-node team-2"></div>
+        <div class="team-node team-3"></div>
+        <div class="team-node team-4"></div>
+        <div class="team-connection team-conn-1"></div>
+        <div class="team-connection team-conn-2"></div>
+        <div class="team-connection team-conn-3"></div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Video Gallery -->
-    <section class="video-gallery">
-        <div class="wrapper">
-            <div style="display: flex; flex-direction: row; justify-content: space-between; gap: 16px; width: 100%;">
-          
-              {% assign videos = site.static_files | where: "extname", ".mp4" %}
-              {% assign col1 = "" | split: "," %}
-              {% assign col2 = "" | split: "," %}
-              {% assign col3 = "" | split: "," %}
-          
-              {% for video in videos %}
-                {% if video.path contains '/assets/videos/' %}
-                  {% assign mod = forloop.index0 | modulo: 3 %}
-                  {% if mod == 0 %}
-                    {% assign col1 = col1 | push: video %}
-                  {% elsif mod == 1 %}
-                    {% assign col2 = col2 | push: video %}
-                  {% else %}
-                    {% assign col3 = col3 | push: video %}
-                  {% endif %}
-                {% endif %}
-              {% endfor %}
-          
-              <!-- 第 1 列 -->
-              <div style="display:flex;flex-direction:column;flex:1;width:0;gap:16px">
-                {% for video in col1 %}
-                  <div class="video-wrapper" data-video-id="{{ video.name | remove: '.mp4' }}">
-                      <video class="gallery-video" preload="metadata" muted>
-                          <source src="{{ video.path | relative_url }}" type="video/mp4">
-                          您的浏览器不支持视频播放。
-                      </video>
-                  </div>
-                {% endfor %}
-              </div>
-          
-              <!-- 第 2 列 -->
-              <div style="display:flex;flex-direction:column;flex:1;width:0;gap:16px">
-                {% for video in col2 %}
-                  <div class="video-wrapper" data-video-id="{{ video.name | remove: '.mp4' }}">
-                      <video class="gallery-video" preload="metadata" muted>
-                          <source src="{{ video.path | relative_url }}" type="video/mp4">
-                          您的浏览器不支持视频播放。
-                      </video>
-                  </div>
-                {% endfor %}
-              </div>
-          
-              <!-- 第 3 列 -->
-              <div style="display:flex;flex-direction:column;flex:1;width:0;gap:16px">
-                {% for video in col3 %}
-                  <div class="video-wrapper" data-video-id="{{ video.name | remove: '.mp4' }}">
-                      <video class="gallery-video" preload="metadata" muted>
-                          <source src="{{ video.path | relative_url }}" type="video/mp4">
-                          您的浏览器不支持视频播放。
-                      </video>
-                  </div>
-                {% endfor %}
-              </div>
-            </div>
-        </div>          
-    </section>
+  <!-- Video Gallery -->
+  <section class="video-gallery">
+    <div class="wrapper">
+      <div class="video-gallery-container">
+        {% assign videos = site.static_files | where: "extname", ".mp4" %}
+        {% assign col1 = "" | split: "," %}
+        {% assign col2 = "" | split: "," %}
+        {% assign col3 = "" | split: "," %}
 
-    <!-- CTA Section -->
-    <section class="videos-cta">
-        <div class="wrapper">
-            <div class="cta-content">
-                <h2 class="cta-title">想要创建自己的AI视频？</h2>
-                <p class="cta-description">加入我们的社区，开始使用先进的AI视频生成技术</p>
-                <div class="cta-actions">
-                    <a href="/contact/" class="btn btn-primary">联系我们</a>
-                    <a href="/projects/" class="btn btn-secondary">查看项目</a>
-                </div>
-            </div>
+        {% for video in videos %}
+        {% if video.path contains '/assets/videos/' %}
+        {% assign mod = forloop.index0 | modulo: 3 %}
+        {% if mod == 0 %}
+        {% assign col1 = col1 | push: video %}
+        {% elsif mod == 1 %}
+        {% assign col2 = col2 | push: video %}
+        {% else %}
+        {% assign col3 = col3 | push: video %}
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+
+        <!-- 第 1 列 -->
+        <div class="video-column">
+          {% for video in col1 %}
+          <div class="video-wrapper" data-video-id="{{ video.name | remove: '.mp4' }}">
+            <video class="gallery-video" preload="metadata">
+              <source src="{{ video.path | relative_url }}" type="video/mp4">
+              您的浏览器不支持视频播放。
+            </video>
+          </div>
+          {% endfor %}
         </div>
-    </section>
+
+        <!-- 第 2 列 -->
+        <div class="video-column">
+          {% for video in col2 %}
+          <div class="video-wrapper" data-video-id="{{ video.name | remove: '.mp4' }}">
+            <video class="gallery-video" preload="metadata">
+              <source src="{{ video.path | relative_url }}" type="video/mp4">
+              您的浏览器不支持视频播放。
+            </video>
+          </div>
+          {% endfor %}
+        </div>
+
+        <!-- 第 3 列 -->
+        <div class="video-column">
+          {% for video in col3 %}
+          <div class="video-wrapper" data-video-id="{{ video.name | remove: '.mp4' }}">
+            <video class="gallery-video" preload="metadata">
+              <source src="{{ video.path | relative_url }}" type="video/mp4">
+              您的浏览器不支持视频播放。
+            </video>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="videos-cta">
+    <div class="wrapper">
+      <div class="cta-content">
+        <h2 class="cta-title">想要创建自己的AI视频？</h2>
+        <p class="cta-description">加入我们的社区，开始使用先进的AI视频生成技术</p>
+        <div class="cta-actions">
+          <a href="/contact/" class="btn btn-primary">联系我们</a>
+          <a href="/projects/" class="btn btn-secondary">查看项目</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
 
 <!-- 引入视频页面专用样式和脚本 -->

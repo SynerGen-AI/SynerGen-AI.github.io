@@ -56,16 +56,16 @@ cta:
   description: "Ready to contribute to the future of generative AI? Join our community of researchers, developers, and innovators."
   actions:
     - text: "Get Involved"
-      url: "/contact/"
+      url: "/en/contact/"
       style: "primary"
     - text: "View Projects"
-      url: "/projects/"
+      url: "/en/projects/"
       style: "secondary"
 ---
 
 Whether you're a seasoned researcher, a passionate developer, or someone just starting their journey in AI, there's a place for you in the SynerGen-AI community. Together, we can shape the future of generative artificial intelligence.
 
-[Get Involved](/contact/) • [View Our Projects](/projects/) • [Meet Our Team](/people/)
+[Get Involved](/en/contact/) • [View Our Projects](/en/projects/) • [Meet Our Team](/en/people/)
 
 ---
 

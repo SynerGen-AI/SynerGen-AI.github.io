@@ -6,8 +6,8 @@ lang: en
 github_projects:
   - repo: "SynerGen-AI/EasyVideo"
     category: "computer-vision"
-    image: "/assets/images/logo.png"
-    description: "a full pipeline platform for AI video generation, including a designed prompt model, video diffusion models..."
+    image: "/assets/team/EasyVideo.png"
+    description: "A full-stack video generation platform, including prompt model, video diffusion model and other modules"
     tags: ["AIGC", "Diffusion-Model"]
 ---
 
@@ -33,12 +33,11 @@ github_projects:
   {{ page.github_projects | jsonify }}
   </script>
   
-  <script src="{{ '/assets/js/cache-manager.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/cache-monitor.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/json-cache-manager.js' | relative_url }}"></script>
 <script src="{{ '/js/projects.js' | relative_url }}"></script>
 
   <div class="no-projects" style="display: none;">
-    <p>Nothing found, but we are developing!!!</p>
+    <p>No projects found in the selected category.</p>
   </div>
 </div>
 
